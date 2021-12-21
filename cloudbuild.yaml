@@ -29,7 +29,8 @@ steps:
     args: [
           'compute', 'instances', 'create-with-container', 'kk-flask-test4',
           '--zone', 'asia-northeast1-b',
-          '--container-image', 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME_WEB}'
+          '--container-image', 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME_WEB}',
+          '--container-image', 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME_APP}'
           ]
 
 substitutions:
