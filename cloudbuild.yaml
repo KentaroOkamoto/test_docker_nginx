@@ -1,0 +1,22 @@
+steps:
+  # docker build
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: .
+    args: [
+          'build',
+          '-t', 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME}:${_GCR_TAG}',
+          '-f', 'app/Dockerfile',
+          '--cache-from', 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME}:${_GCR_TAG}',
+          '.'
+          ]
+  # push image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["push", 'gcr.io/${_GCR_PROJECT}/${_GCR_IMAGE_NAME}']
+    
+substitutions:
+  # # Project ID
+  _GCR_PROJECT: kdc-sd-kk003-211119
+  # # Image name
+  _GCR_IMAGE_NAME: webapp
+  # # Image tag
+  _GCR_TAG: latest
