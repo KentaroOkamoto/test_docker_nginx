@@ -27,10 +27,9 @@ steps:
   # container update
   - name: 'gcr.io/cloud-builders/gcloud'
     args: [
-          'compute', 'instances', 'create-with-container', 'kk-flask-test4',
+          'compute', 'instances', 'create-with-container', 'kk-flask-test5',
           '--zone', 'asia-northeast1-b',
-          '--container-image', 'gcr.io/${_GCR_PROJECT_WEB}/${_GCR_IMAGE_NAME_WEB}',
-          '--container-image', 'gcr.io/${_GCR_PROJECT_WEB}/${_GCR_IMAGE_NAME_APP}'
+          '--container-image', 'gcr.io/${_GCR_PROJECT_WEB}/${_GCR_IMAGE_NAME_WEB}'
           ]
 
 substitutions:
